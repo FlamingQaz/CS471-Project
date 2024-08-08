@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://2dop72uv4wi7"]
+
+[ext_resource type="Texture2D" uid="uid://ddw74bdkcyik8" path="res://Assets/Art/Enemies/TargetDummySprite.png" id="1_nuvyd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nj34g"]
+size = Vector2(16, 16)
+
+[node name="TargetDummy" type="Sprite2D"]
+position = Vector2(-413.59, -64)
+texture = ExtResource("1_nuvyd")
+metadata/Health = 50
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_nj34g")

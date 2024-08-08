@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc40sun2pco1w"]
+
+[ext_resource type="Texture2D" uid="uid://cl2qjikrpxc7e" path="res://Assets/Art/Towers/TestTowerSprite.png" id="1_58v6v"]
+[ext_resource type="Script" path="res://Assets/Scripts/Towers/TowerScript.cs" id="2_lpuom"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0kouc"]
+radius = 40.0
+
+[node name="TestTower" type="Sprite2D" node_paths=PackedStringArray("attackTimer", "enemyDetector")]
+scale = Vector2(4, 4)
+texture = ExtResource("1_58v6v")
+script = ExtResource("2_lpuom")
+attackTimer = NodePath("Timer")
+enemyDetector = NodePath("Area2D")
+detectionArea = SubResource("CircleShape2D_0kouc")
+_baseDamage = 10
+_baseRange = 11.055
+_baseAttackSpeed = 2.0
+
+[node name="Area2D" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_0kouc")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

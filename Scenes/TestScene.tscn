@@ -1,5 +1,18 @@
-[gd_scene format=3 uid="uid://dxnkl4swahiih"]
+[gd_scene load_steps=3 format=3 uid="uid://dxnkl4swahiih"]
+
+[ext_resource type="PackedScene" uid="uid://dc40sun2pco1w" path="res://Assets/Prefab Objects/Towers/test_tower.tscn" id="1_q1len"]
+[ext_resource type="PackedScene" uid="uid://2dop72uv4wi7" path="res://Assets/Prefab Objects/Enemies/target_dummy.tscn" id="2_siido"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TargetDummy" parent="." instance=ExtResource("2_siido")]
+position = Vector2(-19, -48)
+
+[node name="TestTower" parent="." instance=ExtResource("1_q1len")]
+position = Vector2(-142, -117)
+_baseAttackSpeed = 4.0
+
+[node name="TestTower2" parent="." instance=ExtResource("1_q1len")]
+position = Vector2(175, -120)
