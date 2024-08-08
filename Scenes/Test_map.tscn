@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxt6jn0t8y475"]
+
+[ext_resource type="PackedScene" uid="uid://5hdf444f1vgy" path="res://Scenes/tile_map_test.tscn" id="1_qho77"]
+[ext_resource type="PackedScene" uid="uid://b7eddb1oyhotg" path="res://Enemies/Enemy_test_1.tscn" id="2_viw0i"]
+
+[sub_resource type="Curve2D" id="Curve2D_b2520"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 576, 64, 0, 0, 0, 0, 576, 512, 0, 0, 0, 0, 960, 512)
+}
+point_count = 4
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_qho77")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(574, 325)
+
+[node name="PathSpawner" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_b2520")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(64, 64)
+
+[node name="CharacterBody2D" parent="Path2D/PathFollow2D" instance=ExtResource("2_viw0i")]
