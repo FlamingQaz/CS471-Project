@@ -4,18 +4,19 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Towers/TowerScript.cs" id="2_lpuom"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0kouc"]
+resource_name = "TestTowerCircle"
 radius = 40.0
 
-[node name="TestTower" type="Sprite2D" node_paths=PackedStringArray("attackTimer", "enemyDetector")]
+[node name="TestTower" type="Sprite2D" node_paths=PackedStringArray("attackTimer", "enemyDetector") groups=["Tower"]]
 scale = Vector2(4, 4)
 texture = ExtResource("1_58v6v")
 script = ExtResource("2_lpuom")
-attackTimer = NodePath("Timer")
-enemyDetector = NodePath("Area2D")
-detectionArea = SubResource("CircleShape2D_0kouc")
 _baseDamage = 10
 _baseRange = 11.055
 _baseAttackSpeed = 2.0
+attackTimer = NodePath("Timer")
+enemyDetector = NodePath("Area2D")
+detectionArea = SubResource("CircleShape2D_0kouc")
 
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false
