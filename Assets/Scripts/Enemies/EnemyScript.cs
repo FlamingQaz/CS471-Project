@@ -54,9 +54,10 @@ namespace CS471TowerDefense.Scripts.Enemies
 		private void _Die()
 		{
 			kill = false;
-			//emmits the signal described above
-				EmitSignal(SignalName.HealthDepleted);
-				QueueFree();
+			//emits the signal described above
+			EmitSignal(SignalName.HealthDepleted);
+			GD.Print(this.Name + " dies ");
+			QueueFree();
 		}
 		
 	}

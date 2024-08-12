@@ -2,6 +2,7 @@ using Godot;
 using System.Collections;
 using System.Collections.Generic;
 using CS471TowerDefense.Scripts;
+using CS471TowerDefense.Scripts.Enemies;
 
 namespace CS471TowerDefense.Scripts.Towers
 {
@@ -29,7 +30,7 @@ namespace CS471TowerDefense.Scripts.Towers
 		private Shape2D detectionArea;
 		
 		//List to keep track of targets
-		private List<Node> _targets = new List<Node>();
+		private List<Enemies.EnemyScript> _targets = new List<Enemies.EnemyScript>();
 		
 		private bool _canAttack = true;
 		
@@ -59,7 +60,8 @@ namespace CS471TowerDefense.Scripts.Towers
 		private void _on_area_2d_body_entered(Node body)
 		{
 			// Replace with function body
-			if (!_targets.Contains(body.GetParent())) _targets.Add(body.GetParent());
+			if (!_targets.Contains((Enemies.EnemyScript) body.GetParent())) 
+				_targets.Add((Enemies.EnemyScript) body.GetParent());
 		}
 		
 		//This is a signal that triggers whenever something exits
@@ -69,7 +71,8 @@ namespace CS471TowerDefense.Scripts.Towers
 		private void _on_area_2d_body_exited(Node body)
 		{
 			// Replace with function body.
-			if (_targets.Contains(body.GetParent())) _targets.Remove(body.GetParent());
+			if (_targets.Contains((Enemies.EnemyScript) body.GetParent())) 
+				_targets.Remove((Enemies.EnemyScript) body.GetParent());
 		}
 		
 		//When the attached timer reaches 0
@@ -83,11 +86,11 @@ namespace CS471TowerDefense.Scripts.Towers
 		
 		//function to attack enemy - simply calls the enemy's TakeDamage function
 		//Might change in the future for more complicated attack situations
-		private void _Attack(Node target)
+		private void _Attack(Enemies.EnemyScript target)
 		{
 			GD.Print(this.Name + " attacks " + target.Name);
-			//if (target.hasmethod("TakeDamage"))
-				//target.TakeDamage(_baseDamage);
+			if (target.HasMethod("TakeDamage"))
+				target.TakeDamage(_baseDamage);
 		}
 	}
 }

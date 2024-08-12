@@ -8,10 +8,10 @@
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="TargetDummy" parent="." instance=ExtResource("2_siido")]
-position = Vector2(-19, -48)
+position = Vector2(-51, -67)
 
 [node name="TestTower" parent="." instance=ExtResource("1_q1len")]
-position = Vector2(-181, -163)
+position = Vector2(-148, -163)
 _baseAttackSpeed = 4.0
 
 [node name="TestTower2" parent="." instance=ExtResource("1_q1len")]
