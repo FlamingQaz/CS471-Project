@@ -1,6 +1,6 @@
 extends Panel
 
-var tower = preload("res://Enemies/Enemy_test_1.tscn")
+var tower = preload("res://Enemies/Tower_test_1.tscn")
 
 func _on_gui_input(event):
 	var tempTower = tower.instantiate()
