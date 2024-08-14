@@ -1,20 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxt6jn0t8y475"]
+[gd_scene load_steps=6 format=3 uid="uid://dxt6jn0t8y475"]
 
 [ext_resource type="PackedScene" uid="uid://5hdf444f1vgy" path="res://Scenes/tile_map_test.tscn" id="1_qho77"]
 [ext_resource type="PackedScene" uid="uid://b7eddb1oyhotg" path="res://Enemies/Enemy_test_1.tscn" id="2_viw0i"]
+[ext_resource type="Texture2D" uid="uid://cnr0k0x6gwcl" path="res://Assets/Art/pixilart-drawing (1).png" id="3_f1s0a"]
 
 [sub_resource type="Curve2D" id="Curve2D_b2520"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 64, 64, 0, 0, 0, 0, 576, 64, 0, 0, 0, 0, 576, 512, 0, 0, 0, 0, 960, 512)
+"points": PackedVector2Array(0, 0, 0, 0, 32, 32, 0, 0, 0, 0, 544, 32)
 }
-point_count = 4
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n1xyi"]
+size = Vector2(54, 54)
 
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" parent="." instance=ExtResource("1_qho77")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(574, 325)
+position = Vector2(288, 32)
 
 [node name="PathSpawner" type="Node2D" parent="."]
 
@@ -22,6 +26,13 @@ position = Vector2(574, 325)
 curve = SubResource("Curve2D_b2520")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-position = Vector2(64, 64)
+position = Vector2(32, 32)
 
 [node name="CharacterBody2D" parent="Path2D/PathFollow2D" instance=ExtResource("2_viw0i")]
+speed = 100
+
+[node name="Pixilart-drawing(1)" type="Sprite2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+texture = ExtResource("3_f1s0a")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Path2D/PathFollow2D/CharacterBody2D"]
+shape = SubResource("RectangleShape2D_n1xyi")
