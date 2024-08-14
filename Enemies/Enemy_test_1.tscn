@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7eddb1oyhotg"]
+[gd_scene load_steps=4 format=3 uid="uid://b7eddb1oyhotg"]
 
 [ext_resource type="Script" path="res://Enemies/Enemy_test_1.gd" id="1_keewr"]
+[ext_resource type="Texture2D" uid="uid://cnr0k0x6gwcl" path="res://Assets/Art/pixilart-drawing (1).png" id="2_cve3m"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_bs0rv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wt7wj"]
+size = Vector2(54, 54)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_keewr")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(8, 8)
-shape = SubResource("CircleShape2D_bs0rv")
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wt7wj")
+
+[node name="Pixilart-drawing(1)" type="Sprite2D" parent="."]
+texture = ExtResource("2_cve3m")
