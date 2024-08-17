@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://2dop72uv4wi7"]
 
-[ext_resource type="Script" path="res://Enemies/Enemy_test_1.gd" id="1_0vl8y"]
+[ext_resource type="Script" path="res://Assets/Prefab Objects/Enemies/Enemy_test_1.gd" id="1_0vl8y"]
 [ext_resource type="Texture2D" uid="uid://ddw74bdkcyik8" path="res://Assets/Art/Enemies/TargetDummySprite.png" id="1_nuvyd"]
 [ext_resource type="Script" path="res://Assets/Scripts/Enemies/EnemyScript.cs" id="2_01ruh"]
 

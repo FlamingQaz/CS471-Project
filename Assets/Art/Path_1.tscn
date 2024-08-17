@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cigu3ywbmq8ql"]
 
-[ext_resource type="PackedScene" uid="uid://2dop72uv4wi7" path="res://Assets/Prefab Objects/Enemies/target_dummy.tscn" id="2_nn1si"]
+[ext_resource type="PackedScene" uid="uid://2dop72uv4wi7" path="res://Assets/Prefab Objects/Enemies/target_dummy.tscn" id="1_0ajx0"]
 
 [sub_resource type="Curve2D" id="Curve2D_b2520"]
 _data = {
@@ -15,4 +15,4 @@ curve = SubResource("Curve2D_b2520")
 position = Vector2(32, 32)
 loop = false
 
-[node name="TargetDummy" parent="PathFollow2D" instance=ExtResource("2_nn1si")]
+[node name="TargetDummy" parent="PathFollow2D" instance=ExtResource("1_0ajx0")]

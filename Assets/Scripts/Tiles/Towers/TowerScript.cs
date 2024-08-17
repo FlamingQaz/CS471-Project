@@ -16,6 +16,7 @@ namespace CS471TowerDefense.Scripts.Towers
 		[Export]
 		private int _baseDamage;
 		[Export]
+		//This is in px for some ungodly reason
 		private float _baseRange;
 		[Export]
 		private float _baseAttackSpeed;
@@ -23,7 +24,7 @@ namespace CS471TowerDefense.Scripts.Towers
 		//Child References
 		private Timer _attackTimer;
 		private Area2D _enemyDetector;
-		private Shape2D _detectionArea;
+		private CircleShape2D _detectionArea;
 		
 		//List to keep track of targets
 		private List<Enemies.EnemyScript> _targets = new List<Enemies.EnemyScript>();
@@ -35,9 +36,11 @@ namespace CS471TowerDefense.Scripts.Towers
 		{
 			_enemyDetector = (Area2D) GetChild(0);
 			CollisionShape2D shapeHolder = (CollisionShape2D) _enemyDetector.GetChild(0);
-			_detectionArea = shapeHolder.Shape;
+			_detectionArea = (CircleShape2D) shapeHolder.Shape;
 			_attackTimer = (Timer) GetChild(1);
 			_canAttack = true;
+
+			_detectionArea.Radius = _baseRange;
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.

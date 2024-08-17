@@ -1,19 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxt6jn0t8y475"]
 
-[ext_resource type="PackedScene" uid="uid://5hdf444f1vgy" path="res://Scenes/tile_map_test.tscn" id="1_qho77"]
-[ext_resource type="Script" path="res://Scenes/PathSpawner.gd" id="2_kh37w"]
-[ext_resource type="Script" path="res://Scenes/Panel.gd" id="3_xpnjq"]
+[ext_resource type="PackedScene" uid="uid://5hdf444f1vgy" path="res://Assets/Prefab Objects/Map Systems/tile_map_test.tscn" id="1_uytsv"]
+[ext_resource type="Script" path="res://Assets/Scripts/Systems/PathSpawner.gd" id="2_qekmf"]
+[ext_resource type="Script" path="res://Assets/Scripts/Tiles/Panel.gd" id="3_n0tv5"]
 
 [node name="Test Map 1" type="Node2D"]
 
-[node name="Test Map 1 TileMap" parent="." instance=ExtResource("1_qho77")]
+[node name="Test Map 1 TileMap" parent="." instance=ExtResource("1_uytsv")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 32)
 
 [node name="PathSpawner" type="Node2D" parent="."]
 scale = Vector2(0.99851, 0.971262)
-script = ExtResource("2_kh37w")
+script = ExtResource("2_qekmf")
 
 [node name="Timer" type="Timer" parent="PathSpawner"]
 autostart = true
@@ -25,7 +25,7 @@ offset_left = 136.0
 offset_top = -56.0
 offset_right = 184.0
 offset_bottom = -8.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel"]
 position = Vector2(24, 24)
@@ -35,7 +35,7 @@ offset_left = 200.0
 offset_top = -56.0
 offset_right = 248.0
 offset_bottom = -8.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel2"]
 position = Vector2(24, 24)
@@ -45,7 +45,7 @@ offset_left = 328.0
 offset_top = -56.0
 offset_right = 376.0
 offset_bottom = -8.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel3"]
 position = Vector2(24, 24)
@@ -55,7 +55,7 @@ offset_left = 392.0
 offset_top = -56.0
 offset_right = 440.0
 offset_bottom = -8.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel4"]
 position = Vector2(24, 24)
@@ -65,7 +65,7 @@ offset_left = 136.0
 offset_top = 72.0
 offset_right = 184.0
 offset_bottom = 120.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel5"]
 position = Vector2(24, 24)
@@ -75,7 +75,7 @@ offset_left = 200.0
 offset_top = 72.0
 offset_right = 248.0
 offset_bottom = 120.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel6"]
 position = Vector2(24, 24)
@@ -85,7 +85,7 @@ offset_left = 328.0
 offset_top = 72.0
 offset_right = 376.0
 offset_bottom = 120.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel7"]
 position = Vector2(24, 24)
@@ -95,7 +95,7 @@ offset_left = 392.0
 offset_top = 72.0
 offset_right = 440.0
 offset_bottom = 120.0
-script = ExtResource("3_xpnjq")
+script = ExtResource("3_n0tv5")
 
 [node name="Marker2D" type="Marker2D" parent="Node/Panel8"]
 position = Vector2(24, 24)

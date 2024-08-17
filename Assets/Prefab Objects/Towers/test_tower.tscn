@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dc40sun2pco1w"]
 
-[ext_resource type="Texture2D" uid="uid://cl2qjikrpxc7e" path="res://Assets/Art/Towers/TestTowerSprite.png" id="1_58v6v"]
-[ext_resource type="Script" path="res://Assets/Scripts/Towers/TowerScript.cs" id="2_lpuom"]
+[ext_resource type="Texture2D" uid="uid://coq7yx6mgcfe3" path="res://Assets/Art/Towers/Tower_Test_1.png" id="1_qhhe7"]
+[ext_resource type="Script" path="res://Assets/Scripts/Tiles/Towers/TowerScript.cs" id="2_pgohi"]
 [ext_resource type="Shape2D" uid="uid://b4xf57gvk13lp" path="res://Assets/Prefab Objects/Towers/test_tower_circle.tres" id="3_e7kgp"]
 
 [node name="TestTower" type="Sprite2D" groups=["Tower"]]
-scale = Vector2(4, 4)
-texture = ExtResource("1_58v6v")
-script = ExtResource("2_lpuom")
+texture = ExtResource("1_qhhe7")
+script = ExtResource("2_pgohi")
 _baseDamage = 10
+_baseRange = 120.0
 _baseAttackSpeed = 2.0
 
 [node name="Area2D" type="Area2D" parent="."]

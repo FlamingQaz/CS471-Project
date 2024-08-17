@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://oo2d8l637x4n"]
+[gd_scene load_steps=3 format=3 uid="uid://ba7q57a4uwx2u"]
 
-[ext_resource type="Texture2D" uid="uid://coq7yx6mgcfe3" path="res://Assets/Art/Tower_Test_1.png" id="1_tyr38"]
+[ext_resource type="Texture2D" uid="uid://coq7yx6mgcfe3" path="res://Assets/Art/Towers/Tower_Test_1.png" id="1_wqehl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wt7wj"]
 size = Vector2(54, 54)
@@ -11,4 +11,4 @@ size = Vector2(54, 54)
 shape = SubResource("RectangleShape2D_wt7wj")
 
 [node name="TowerTest1" type="Sprite2D" parent="."]
-texture = ExtResource("1_tyr38")
+texture = ExtResource("1_wqehl")

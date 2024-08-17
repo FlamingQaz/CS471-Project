@@ -1,3 +1,10 @@
 # Godot 4+ specific ignores
 .godot/
 .vs/
+.vs/CS471-Project/FileContentIndex/cd04e933-4c8e-4fdc-a2f0-f6edcead02bd.vsidx
+.vs/CS471-Project/v17/.wsuo
+.vs/CS471-Project/v17/DocumentLayout.json
+.vs/ProjectSettings.json
+.vs/slnx.sqlite
+/.vs
+/.vs
