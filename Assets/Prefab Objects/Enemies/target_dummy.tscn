@@ -1,20 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://2dop72uv4wi7"]
+[gd_scene load_steps=5 format=3 uid="uid://2dop72uv4wi7"]
 
+[ext_resource type="Script" path="res://Enemies/Enemy_test_1.gd" id="1_0vl8y"]
 [ext_resource type="Texture2D" uid="uid://ddw74bdkcyik8" path="res://Assets/Art/Enemies/TargetDummySprite.png" id="1_nuvyd"]
 [ext_resource type="Script" path="res://Assets/Scripts/Enemies/EnemyScript.cs" id="2_01ruh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj34g"]
 size = Vector2(16, 16)
 
-[node name="TargetDummy" type="Sprite2D" groups=["Enemies"]]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Enemies"]]
+motion_mode = 1
+script = ExtResource("1_0vl8y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nj34g")
+
+[node name="TargetDummy_sprite" type="Sprite2D" parent="CollisionShape2D"]
 texture = ExtResource("1_nuvyd")
 script = ExtResource("2_01ruh")
 _baseHealth = 100
 _baseGoldReward = 15
 metadata/Health = 50
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-motion_mode = 1
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("RectangleShape2D_nj34g")
+[node name="HealthLabel" type="Label" parent="CollisionShape2D/TargetDummy_sprite"]
+anchors_preset = -1
+anchor_top = -0.208
+anchor_right = 1.0
+offset_top = 3.328

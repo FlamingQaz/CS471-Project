@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using CS471TowerDefense.Scripts;
 using CS471TowerDefense.Scripts.Enemies;
+using System.Runtime.CompilerServices;
+using System.Runtime;
 
 namespace CS471TowerDefense.Scripts.Towers
 {
@@ -18,16 +20,10 @@ namespace CS471TowerDefense.Scripts.Towers
 		[Export]
 		private float _baseAttackSpeed;
 		
-		//Child Refences, exporting them so I can easily add them
-		//in the inspector rather than finding and setting them 
-		//during runtime
-		[ExportGroup("Child Refrences")]
-		[Export]
-		private Timer attackTimer;
-		[Export]
-		private Area2D enemyDetector;
-		[Export]
-		private Shape2D detectionArea;
+		//Child References
+		private Timer _attackTimer;
+		private Area2D _enemyDetector;
+		private Shape2D _detectionArea;
 		
 		//List to keep track of targets
 		private List<Enemies.EnemyScript> _targets = new List<Enemies.EnemyScript>();
@@ -37,6 +33,11 @@ namespace CS471TowerDefense.Scripts.Towers
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
+			_enemyDetector = (Area2D) GetChild(0);
+			CollisionShape2D shapeHolder = (CollisionShape2D) _enemyDetector.GetChild(0);
+			_detectionArea = shapeHolder.Shape;
+			_attackTimer = (Timer) GetChild(1);
+			_canAttack = true;
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,10 +48,6 @@ namespace CS471TowerDefense.Scripts.Towers
 			//start
 			if (_targets.Count != 0 && _canAttack) {
 				_Attack(_targets[0]);
-				//EmitSignal(SignalName.AttackTarget);
-				
-				attackTimer.Start(_baseAttackSpeed);
-				_canAttack = false;
 			}
 		}
 		
@@ -59,9 +56,12 @@ namespace CS471TowerDefense.Scripts.Towers
 		//Adds enemies to the _target list when they are in range
 		private void _on_area_2d_body_entered(Node body)
 		{
-			// Replace with function body
-			if (!_targets.Contains((Enemies.EnemyScript) body.GetParent())) 
-				_targets.Add((Enemies.EnemyScript) body.GetParent());
+			Enemies.EnemyScript potentialEnemy = (Enemies.EnemyScript)body.GetChild(0).GetChild(0);
+
+			if (!_targets.Contains(potentialEnemy))
+			{
+				_targets.Add(potentialEnemy);
+			}
 		}
 		
 		//This is a signal that triggers whenever something exits
@@ -70,9 +70,10 @@ namespace CS471TowerDefense.Scripts.Towers
 		//of the tower
 		private void _on_area_2d_body_exited(Node body)
 		{
-			// Replace with function body.
-			if (_targets.Contains((Enemies.EnemyScript) body.GetParent())) 
-				_targets.Remove((Enemies.EnemyScript) body.GetParent());
+			Enemies.EnemyScript potentialEnemy = (Enemies.EnemyScript) body.GetChild(0).GetChild(0);
+
+			if (_targets.Contains(potentialEnemy)) 
+				_targets.Remove( potentialEnemy);
 		}
 		
 		//When the attached timer reaches 0
@@ -80,7 +81,6 @@ namespace CS471TowerDefense.Scripts.Towers
 		//when it reaches 0 the attack cooldown is over
 		private void _on_timer_timeout()
 		{
-			// Replace with function body.
 			_canAttack = true;
 		}
 		
@@ -91,6 +91,8 @@ namespace CS471TowerDefense.Scripts.Towers
 			GD.Print(this.Name + " attacks " + target.Name);
 			if (target.HasMethod("TakeDamage"))
 				target.TakeDamage(_baseDamage);
+			_attackTimer.Start(_baseAttackSpeed);
+			_canAttack = false;
 		}
 	}
 }

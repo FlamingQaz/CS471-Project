@@ -5,6 +5,9 @@ namespace CS471TowerDefense.Scripts.Enemies
 {
 	public partial class EnemyScript : Node
 	{
+		
+		private Label _healthLabel;
+		
 		//Base Enemy Stats
 		[ExportGroup("Enemy Stats")]
 		[Export]
@@ -26,6 +29,9 @@ namespace CS471TowerDefense.Scripts.Enemies
 		{
 			kill = false;
 			_currHealth = _baseHealth;
+			_healthLabel = (Label) FindChild("HealthLabel");
+			_healthLabel.Text = "" + _currHealth + "/" + _baseHealth;
+			
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -44,6 +50,7 @@ namespace CS471TowerDefense.Scripts.Enemies
 		public void TakeDamage(int amount)
 		{
 			_currHealth -= amount;
+			_healthLabel.Text = "" + _currHealth + "/" + _baseHealth;
 
 			if (_currHealth <= 0)
 			{

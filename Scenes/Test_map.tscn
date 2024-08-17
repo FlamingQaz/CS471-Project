@@ -12,6 +12,7 @@
 position = Vector2(288, 32)
 
 [node name="PathSpawner" type="Node2D" parent="."]
+scale = Vector2(0.99851, 0.971262)
 script = ExtResource("2_kh37w")
 
 [node name="Timer" type="Timer" parent="PathSpawner"]

@@ -11,7 +11,7 @@
 position = Vector2(-51, -67)
 
 [node name="TestTower" parent="." instance=ExtResource("1_q1len")]
-position = Vector2(-148, -163)
+position = Vector2(-224, -166)
 _baseAttackSpeed = 4.0
 
 [node name="TestTower2" parent="." instance=ExtResource("1_q1len")]

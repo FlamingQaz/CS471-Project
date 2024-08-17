@@ -2,27 +2,20 @@
 
 [ext_resource type="Texture2D" uid="uid://cl2qjikrpxc7e" path="res://Assets/Art/Towers/TestTowerSprite.png" id="1_58v6v"]
 [ext_resource type="Script" path="res://Assets/Scripts/Towers/TowerScript.cs" id="2_lpuom"]
+[ext_resource type="Shape2D" uid="uid://b4xf57gvk13lp" path="res://Assets/Prefab Objects/Towers/test_tower_circle.tres" id="3_e7kgp"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0kouc"]
-resource_name = "TestTowerCircle"
-radius = 40.0
-
-[node name="TestTower" type="Sprite2D" node_paths=PackedStringArray("attackTimer", "enemyDetector") groups=["Tower"]]
+[node name="TestTower" type="Sprite2D" groups=["Tower"]]
 scale = Vector2(4, 4)
 texture = ExtResource("1_58v6v")
 script = ExtResource("2_lpuom")
 _baseDamage = 10
-_baseRange = 11.055
 _baseAttackSpeed = 2.0
-attackTimer = NodePath("Timer")
-enemyDetector = NodePath("Area2D")
-detectionArea = SubResource("CircleShape2D_0kouc")
 
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_0kouc")
+shape = ExtResource("3_e7kgp")
 
 [node name="Timer" type="Timer" parent="."]
 
