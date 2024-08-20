@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rreo44mxhn7h"
-path="res://.godot/imported/td-project-v-tile-3-pixilart.png-5ed996ca1a49d718b2c55e157877b64d.ctex"
+uid="uid://cvqqpw31fry40"
+path="res://.godot/imported/td-project-v-tile-1-pixilart.png-2fdbbcfaf8cbdd6b9210c27a77c620c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/td-project-v-tile-3-pixilart.png"
-dest_files=["res://.godot/imported/td-project-v-tile-3-pixilart.png-5ed996ca1a49d718b2c55e157877b64d.ctex"]
+source_file="res://Assets/Art/Map Tiles/td-project-v-tile-1-pixilart.png"
+dest_files=["res://.godot/imported/td-project-v-tile-1-pixilart.png-2fdbbcfaf8cbdd6b9210c27a77c620c6.ctex"]
 
 [params]
 

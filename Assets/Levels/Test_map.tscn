@@ -15,99 +15,99 @@ position = Vector2(288, 32)
 scale = Vector2(0.99851, 0.971262)
 script = ExtResource("2_qekmf")
 
-[node name="Timer" type="Timer" parent="PathSpawner"]
+[node name="Enemy Path Timer" type="Timer" parent="PathSpawner"]
 autostart = true
 
-[node name="Node" type="Node" parent="."]
+[node name="Tower Placement Tiles" type="Node" parent="."]
 
-[node name="Panel" type="Panel" parent="Node"]
+[node name="Panel" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 136.0
 offset_top = -56.0
 offset_right = 184.0
 offset_bottom = -8.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel"]
 position = Vector2(24, 24)
 
-[node name="Panel2" type="Panel" parent="Node"]
+[node name="Panel2" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 200.0
 offset_top = -56.0
 offset_right = 248.0
 offset_bottom = -8.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel2"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel2"]
 position = Vector2(24, 24)
 
-[node name="Panel3" type="Panel" parent="Node"]
+[node name="Panel3" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 328.0
 offset_top = -56.0
 offset_right = 376.0
 offset_bottom = -8.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel3"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel3"]
 position = Vector2(24, 24)
 
-[node name="Panel4" type="Panel" parent="Node"]
+[node name="Panel4" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 392.0
 offset_top = -56.0
 offset_right = 440.0
 offset_bottom = -8.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel4"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel4"]
 position = Vector2(24, 24)
 
-[node name="Panel5" type="Panel" parent="Node"]
+[node name="Panel5" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 136.0
 offset_top = 72.0
 offset_right = 184.0
 offset_bottom = 120.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel5"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel5"]
 position = Vector2(24, 24)
 
-[node name="Panel6" type="Panel" parent="Node"]
+[node name="Panel6" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 200.0
 offset_top = 72.0
 offset_right = 248.0
 offset_bottom = 120.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel6"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel6"]
 position = Vector2(24, 24)
 
-[node name="Panel7" type="Panel" parent="Node"]
+[node name="Panel7" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 328.0
 offset_top = 72.0
 offset_right = 376.0
 offset_bottom = 120.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel7"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel7"]
 position = Vector2(24, 24)
 
-[node name="Panel8" type="Panel" parent="Node"]
+[node name="Panel8" type="Panel" parent="Tower Placement Tiles"]
 offset_left = 392.0
 offset_top = 72.0
 offset_right = 440.0
 offset_bottom = 120.0
 script = ExtResource("3_n0tv5")
 
-[node name="Marker2D" type="Marker2D" parent="Node/Panel8"]
+[node name="Marker2D" type="Marker2D" parent="Tower Placement Tiles/Panel8"]
 position = Vector2(24, 24)
 
 [node name="Towers" type="Node2D" parent="."]
 
-[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
-[connection signal="gui_input" from="Node/Panel" to="Node/Panel" method="_on_gui_input"]
-[connection signal="gui_input" from="Node/Panel2" to="Node/Panel2" method="_on_gui_input"]
-[connection signal="gui_input" from="Node/Panel3" to="Node/Panel3" method="_on_gui_input"]
-[connection signal="gui_input" from="Node/Panel4" to="Node/Panel4" method="_on_gui_input"]
-[connection signal="gui_input" from="Node/Panel5" to="Node/Panel5" method="_on_gui_input"]
-[connection signal="gui_input" from="Node/Panel6" to="Node/Panel6" method="_on_gui_input"]
-[connection signal="gui_input" from="Node/Panel7" to="Node/Panel7" method="_on_gui_input"]
-[connection signal="gui_input" from="Node/Panel8" to="Node/Panel8" method="_on_gui_input"]
+[connection signal="timeout" from="PathSpawner/Enemy Path Timer" to="PathSpawner" method="_on_timer_timeout"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel" to="Tower Placement Tiles/Panel" method="_on_gui_input"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel2" to="Tower Placement Tiles/Panel2" method="_on_gui_input"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel3" to="Tower Placement Tiles/Panel3" method="_on_gui_input"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel4" to="Tower Placement Tiles/Panel4" method="_on_gui_input"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel5" to="Tower Placement Tiles/Panel5" method="_on_gui_input"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel6" to="Tower Placement Tiles/Panel6" method="_on_gui_input"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel7" to="Tower Placement Tiles/Panel7" method="_on_gui_input"]
+[connection signal="gui_input" from="Tower Placement Tiles/Panel8" to="Tower Placement Tiles/Panel8" method="_on_gui_input"]
