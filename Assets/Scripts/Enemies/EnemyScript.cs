@@ -39,6 +39,8 @@ namespace CS471TowerDefense.Scripts.Enemies
 		{
 			if (kill)
 				_Die();
+			
+			get_parent().set_progress(get_parent().get_progress() + _baseMoveSpeed*delta);
 		}
 		
 		//This is a custom signal that emmits when the entity reaches 0 Health
