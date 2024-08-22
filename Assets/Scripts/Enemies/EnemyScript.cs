@@ -64,7 +64,10 @@ namespace CS471TowerDefense.Scripts.Enemies
 			//emits the signal described above
 			EmitSignal(SignalName.HealthDepleted);
 			GD.Print(this.Name + " dies ");
-			QueueFree();
+
+			//This gets the Path node the enemy is attached too
+			//TODO: Find something more elegant ig lol
+			GetParent().GetParent().GetParent().GetParent().QueueFree();
 		}
 		
 	}

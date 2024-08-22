@@ -7,7 +7,7 @@
 [node name="TestTower" type="Sprite2D" groups=["Tower"]]
 texture = ExtResource("1_qhhe7")
 script = ExtResource("2_pgohi")
-_baseDamage = 10
+_baseDamage = 80
 _baseRange = 120.0
 _baseAttackSpeed = 2.0
 
