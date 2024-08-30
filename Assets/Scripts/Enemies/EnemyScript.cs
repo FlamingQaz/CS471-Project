@@ -1,12 +1,17 @@
 using Godot;
 using System;
+using CS471TowerDefense.Scripts;
+using CS471TowerDefense.Scripts.GameSystems;
 
 namespace CS471TowerDefense.Scripts.Enemies
 {
 	public partial class EnemyScript : Node
 	{
+		private GameSystems.PlayerSignals _playerSignals;
 		
 		private Label _healthLabel;
+		private PathFollow2D _pathFollow2d;
+
 		
 		//Base Enemy Stats
 		[ExportGroup("Enemy Stats")]
@@ -16,7 +21,10 @@ namespace CS471TowerDefense.Scripts.Enemies
 		private float _baseMoveSpeed;
 		[Export]
 		private int _baseGoldReward;
-		
+		[Export]
+		private int _baseDamage;
+
+
 		[ExportGroup("DEBUG")]
 		[Export]
 		//a die on command button basically, to test that out
@@ -31,12 +39,24 @@ namespace CS471TowerDefense.Scripts.Enemies
 			_currHealth = _baseHealth;
 			_healthLabel = (Label) FindChild("HealthLabel");
 			_healthLabel.Text = "" + _currHealth + "/" + _baseHealth;
-			
+
+			_pathFollow2d = (PathFollow2D)GetParent().GetParent().GetParent();
+
+			_playerSignals = GetNode<GameSystems.PlayerSignals>("/root/PlayerSignals");
+			//GameSystems.Player player = (GameSystems.Player) GetNode("/root/Player");
 		}
 
 		// Called every frame. 'delta' is the elapsed time since the previous frame.
 		public override void _Process(double delta)
 		{
+			_pathFollow2d.Progress += (float) (_baseMoveSpeed * delta);
+
+			if (_pathFollow2d.ProgressRatio == 1)
+			{
+				_playerSignals.EmitSignal(nameof(GameSystems.PlayerSignals.TakeDamage), _baseDamage);
+				_pathFollow2d.GetParent().QueueFree();
+			}
+
 			if (kill)
 				_Die();
 		}
