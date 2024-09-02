@@ -27,17 +27,21 @@ namespace CS471TowerDefense.Scripts.GameSystems
 		// Called when the node enters the scene tree for the first time.
 		public override void _Ready()
 		{
-
-		}
-
-		public override void _EnterTree()
-		{
 			_health = 1000;
 
 			EmitSignal(SignalName.UpdateHealthDisplay, _health);
 
 			_playerSignals = GetNode<PlayerSignals>("/root/PlayerSignals");
 			_playerSignals.TakeDamage += HandleTakeDamage;
+
+		}
+
+		public override void _Notification(int what)
+		{
+			if (what == NotificationPredelete)
+			{
+				_playerSignals.TakeDamage -= HandleTakeDamage;
+			}
 		}
 
 		private void HandleTakeDamage(int amount)
