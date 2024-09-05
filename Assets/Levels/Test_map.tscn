@@ -1,15 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dxt6jn0t8y475"]
+[gd_scene load_steps=5 format=3 uid="uid://dxt6jn0t8y475"]
 
 [ext_resource type="PackedScene" uid="uid://5hdf444f1vgy" path="res://Assets/Prefab Objects/Map Systems/tile_map_test.tscn" id="1_uytsv"]
 [ext_resource type="Script" path="res://Assets/Scripts/Systems/PathSpawner.gd" id="2_qekmf"]
 [ext_resource type="Script" path="res://Assets/Scripts/Tiles/Panel.gd" id="3_n0tv5"]
+[ext_resource type="PackedScene" uid="uid://c6d3dm2bho8tk" path="res://Assets/Prefab Objects/Map Systems/player.tscn" id="4_qjscm"]
 
 [node name="Test Map 1" type="Node2D"]
+process_mode = 1
 
 [node name="Test Map 1 TileMap" parent="." instance=ExtResource("1_uytsv")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(288, 32)
 
 [node name="PathSpawner" type="Node2D" parent="."]
 scale = Vector2(0.99851, 0.971262)
@@ -101,6 +100,8 @@ script = ExtResource("3_n0tv5")
 position = Vector2(24, 24)
 
 [node name="Towers" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("4_qjscm")]
 
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="gui_input" from="Node/Panel" to="Node/Panel" method="_on_gui_input"]

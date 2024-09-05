@@ -15,6 +15,10 @@ run/main_scene="res://Assets/Levels/Test_map.tscn"
 config/features=PackedStringArray("4.2", "C#", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerSignals="*res://Assets/Scripts/Systems/PlayerSignals.cs"
+
 [dotnet]
 
 project/assembly_name="Cs 471-project"
