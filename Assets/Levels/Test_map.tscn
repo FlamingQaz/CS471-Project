@@ -15,6 +15,7 @@ scale = Vector2(0.99851, 0.971262)
 script = ExtResource("2_qekmf")
 
 [node name="Timer" type="Timer" parent="PathSpawner"]
+one_shot = true
 
 [node name="Node" type="Node" parent="."]
 
@@ -100,9 +101,9 @@ position = Vector2(24, 24)
 
 [node name="Towers" type="Node2D" parent="."]
 
-[connection signal="ready" from="PathSpawner" to="PathSpawner" method="_on_ready"]
 [node name="Player" parent="." instance=ExtResource("4_qjscm")]
 
+[connection signal="ready" from="PathSpawner" to="PathSpawner" method="_on_ready"]
 [connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="gui_input" from="Node/Panel" to="Node/Panel" method="_on_gui_input"]
 [connection signal="gui_input" from="Node/Panel2" to="Node/Panel2" method="_on_gui_input"]

@@ -16,18 +16,21 @@ func _on_ready():
 func _on_timer_timeout():
 	
 	if(count == 1):
-		get_child(0).wait_time = 1
+		get_child(0).start(1)
 		
 	elif(count == wave1Count && wave == 1):
 		wave = 2
 		count = 0
-		get_child(0).wait_time = 10
+		get_child(0).start(10)
 	elif(count == wave2Count && wave == 2):
 		wave = 3
 		count = 0
-		get_child(0).wait_time = 10
+		get_child(0).start(10)
 	elif(count == wave3Count && wave == 3):
-		queue_free()
+		get_child(0).queue_free()
+		pass
+	else:
+		get_child(0).start(1)
 		pass	
 	
 	count = count + 1	

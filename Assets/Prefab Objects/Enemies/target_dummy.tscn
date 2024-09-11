@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://2dop72uv4wi7"]
+[gd_scene load_steps=5 format=3 uid="uid://2dop72uv4wi7"]
 
 [ext_resource type="Texture2D" uid="uid://ddw74bdkcyik8" path="res://Assets/Art/Enemies/TargetDummySprite.png" id="1_nuvyd"]
 [ext_resource type="Script" path="res://Assets/Scripts/Enemies/EnemyScript.cs" id="2_01ruh"]
@@ -19,7 +19,6 @@ script = ExtResource("2_01ruh")
 _baseHealth = 100
 _baseMoveSpeed = 100.0
 _baseGoldReward = 15
-_baseDamage = 250
 metadata/Health = 50
 
 [node name="HealthLabel" type="Label" parent="CollisionShape2D/TargetDummy_sprite"]
