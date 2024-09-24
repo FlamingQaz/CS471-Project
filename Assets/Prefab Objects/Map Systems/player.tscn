@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6d3dm2bho8tk"]
+[gd_scene load_steps=6 format=3 uid="uid://c6d3dm2bho8tk"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Systems/Player.cs" id="1_4843l"]
 [ext_resource type="Script" path="res://Assets/Scripts/UI/HUD/HealthDisplayLabel.cs" id="2_qgvq3"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/HUD/GoldDisplayLabel.cs" id="3_20sv5"]
+[ext_resource type="Script" path="res://Assets/Scripts/Systems/CurrencyManager.gd" id="3_kivkt"]
+[ext_resource type="Script" path="res://Assets/Scripts/Systems/PathSpawner.gd" id="5_bw3pm"]
 
 [node name="Player" type="Node"]
 script = ExtResource("1_4843l")
@@ -27,5 +30,19 @@ anchor_right = 1.0
 anchor_bottom = 0.17
 grow_horizontal = 0
 text = "Gold:"
+script = ExtResource("3_20sv5")
+
+[node name="Currency Manager" type="Node" parent="."]
+script = ExtResource("3_kivkt")
+
+[node name="PathSpawner" type="Node2D" parent="."]
+scale = Vector2(0.99851, 0.971262)
+script = ExtResource("5_bw3pm")
+
+[node name="Timer" type="Timer" parent="PathSpawner"]
+one_shot = true
 
 [connection signal="UpdateHealthDisplay" from="." to="HUD/Player Health" method="_on_player_update_health_display"]
+[connection signal="money_updated" from="Currency Manager" to="HUD/Player Gold" method="_on_currency_manager_money_updated"]
+[connection signal="ready" from="PathSpawner" to="PathSpawner" method="_on_ready"]
+[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]

@@ -3,28 +3,28 @@ using System;
 
 public partial class GameOver : CanvasLayer
 {
-    // Called when the node enters the scene tree for the first time.
-    public override void _Ready()
-    {
-    }
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
 
-    // Called every frame. 'delta' is the elapsed time since the previous frame.
-    public override void _Process(double delta)
-    {
-    }
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
 
-    private void _on_quit_button_pressed()
-    {
-        // Replace with function body.
-        GetTree().Quit();
-    }
+	private void _on_quit_button_pressed()
+	{
+		// Replace with function body.
+		GetTree().Quit();
+	}
 
 
-    private void _on_restart_button_pressed()
-    {
-        // Replace with function body.
-        GetTree().Paused = false;
-        GetTree().ReloadCurrentScene();
-    }
+	private void _on_restart_button_pressed()
+	{
+		// Replace with function body.
+		GetTree().Paused = false;
+		GetTree().ReloadCurrentScene();
+	}
 }
 
