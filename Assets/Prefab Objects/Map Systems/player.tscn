@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6d3dm2bho8tk"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Systems/Player.cs" id="1_4843l"]
+[ext_resource type="Script" path="res://Assets/Scripts/UI/HUD/HealthDisplayLabel.cs" id="2_qgvq3"]
+
+[node name="Player" type="Node"]
+script = ExtResource("1_4843l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(288, 32)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Player Health" type="Label" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.841
+anchor_right = 1.0
+anchor_bottom = 0.085
+grow_horizontal = 0
+script = ExtResource("2_qgvq3")
+
+[node name="Player Gold" type="Label" parent="HUD"]
+anchors_preset = -1
+anchor_left = 0.841
+anchor_top = 0.085
+anchor_right = 1.0
+anchor_bottom = 0.17
+grow_horizontal = 0
+text = "Gold:"
+
+[connection signal="UpdateHealthDisplay" from="." to="HUD/Player Health" method="_on_player_update_health_display"]
