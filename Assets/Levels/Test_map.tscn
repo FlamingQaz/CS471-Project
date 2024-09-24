@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dxt6jn0t8y475"]
+[gd_scene load_steps=4 format=3 uid="uid://dxt6jn0t8y475"]
 
 [ext_resource type="PackedScene" uid="uid://5hdf444f1vgy" path="res://Assets/Prefab Objects/Map Systems/tile_map_test.tscn" id="1_uytsv"]
-[ext_resource type="Script" path="res://Assets/Scripts/Systems/PathSpawner.gd" id="2_qekmf"]
 [ext_resource type="Script" path="res://Assets/Scripts/Tiles/Panel.gd" id="3_n0tv5"]
 [ext_resource type="PackedScene" uid="uid://c6d3dm2bho8tk" path="res://Assets/Prefab Objects/Map Systems/player.tscn" id="4_qjscm"]
 
@@ -10,16 +9,9 @@ process_mode = 1
 
 [node name="Test Map 1 TileMap" parent="." instance=ExtResource("1_uytsv")]
 
-[node name="PathSpawner" type="Node2D" parent="."]
-scale = Vector2(0.99851, 0.971262)
-script = ExtResource("2_qekmf")
-
-[node name="Timer" type="Timer" parent="PathSpawner"]
-one_shot = true
-
 [node name="Node" type="Node" parent="."]
 
-[node name="Panel" type="Panel" parent="Node"]
+[node name="Panel" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 136.0
 offset_top = -56.0
 offset_right = 184.0
@@ -29,7 +21,7 @@ script = ExtResource("3_n0tv5")
 [node name="Marker2D" type="Marker2D" parent="Node/Panel"]
 position = Vector2(24, 24)
 
-[node name="Panel2" type="Panel" parent="Node"]
+[node name="Panel2" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 200.0
 offset_top = -56.0
 offset_right = 248.0
@@ -39,7 +31,7 @@ script = ExtResource("3_n0tv5")
 [node name="Marker2D" type="Marker2D" parent="Node/Panel2"]
 position = Vector2(24, 24)
 
-[node name="Panel3" type="Panel" parent="Node"]
+[node name="Panel3" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 328.0
 offset_top = -56.0
 offset_right = 376.0
@@ -49,7 +41,7 @@ script = ExtResource("3_n0tv5")
 [node name="Marker2D" type="Marker2D" parent="Node/Panel3"]
 position = Vector2(24, 24)
 
-[node name="Panel4" type="Panel" parent="Node"]
+[node name="Panel4" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 392.0
 offset_top = -56.0
 offset_right = 440.0
@@ -59,7 +51,7 @@ script = ExtResource("3_n0tv5")
 [node name="Marker2D" type="Marker2D" parent="Node/Panel4"]
 position = Vector2(24, 24)
 
-[node name="Panel5" type="Panel" parent="Node"]
+[node name="Panel5" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 136.0
 offset_top = 72.0
 offset_right = 184.0
@@ -69,7 +61,7 @@ script = ExtResource("3_n0tv5")
 [node name="Marker2D" type="Marker2D" parent="Node/Panel5"]
 position = Vector2(24, 24)
 
-[node name="Panel6" type="Panel" parent="Node"]
+[node name="Panel6" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 200.0
 offset_top = 72.0
 offset_right = 248.0
@@ -79,7 +71,7 @@ script = ExtResource("3_n0tv5")
 [node name="Marker2D" type="Marker2D" parent="Node/Panel6"]
 position = Vector2(24, 24)
 
-[node name="Panel7" type="Panel" parent="Node"]
+[node name="Panel7" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 328.0
 offset_top = 72.0
 offset_right = 376.0
@@ -89,7 +81,7 @@ script = ExtResource("3_n0tv5")
 [node name="Marker2D" type="Marker2D" parent="Node/Panel7"]
 position = Vector2(24, 24)
 
-[node name="Panel8" type="Panel" parent="Node"]
+[node name="Panel8" type="Panel" parent="Node" groups=["Tower Tile"]]
 offset_left = 392.0
 offset_top = 72.0
 offset_right = 440.0
@@ -103,8 +95,6 @@ position = Vector2(24, 24)
 
 [node name="Player" parent="." instance=ExtResource("4_qjscm")]
 
-[connection signal="ready" from="PathSpawner" to="PathSpawner" method="_on_ready"]
-[connection signal="timeout" from="PathSpawner/Timer" to="PathSpawner" method="_on_timer_timeout"]
 [connection signal="gui_input" from="Node/Panel" to="Node/Panel" method="_on_gui_input"]
 [connection signal="gui_input" from="Node/Panel2" to="Node/Panel2" method="_on_gui_input"]
 [connection signal="gui_input" from="Node/Panel3" to="Node/Panel3" method="_on_gui_input"]

@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://coq7yx6mgcfe3" path="res://Assets/Art/Towers/Tower_Test_1.png" id="1_qhhe7"]
 [ext_resource type="Script" path="res://Assets/Scripts/Tiles/Towers/TowerScript.cs" id="2_pgohi"]
-[ext_resource type="Shape2D" path="res://Assets/Prefab Objects/Towers/test_tower_circle.tres" id="3_e7kgp"]
+[ext_resource type="Shape2D" uid="uid://b4xf57gvk13lp" path="res://Assets/Prefab Objects/Towers/test_tower_circle.tres" id="3_e7kgp"]
 
 [node name="TestTower" type="Sprite2D" groups=["Tower"]]
 texture = ExtResource("1_qhhe7")
 script = ExtResource("2_pgohi")
-_baseDamage = 10
+_baseDamage = 40
 _baseRange = 120.0
-_baseAttackSpeed = 0.1
+_baseAttackSpeed = 0.5
 
 [node name="Area2D" type="Area2D" parent="."]
 monitorable = false

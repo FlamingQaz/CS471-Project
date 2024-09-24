@@ -63,7 +63,7 @@ namespace CS471TowerDefense.Scripts.Enemies
 		
 		//This is a custom signal that emmits when the entity reaches 0 Health
 		[Signal]
-		public delegate void HealthDepletedEventHandler();
+		public delegate void HealthDepletedEventHandler(int goldReward);
 		
 		//This function allows for the entity to take damage
 		//Its set as public as the attack function of the tower would be calling this
@@ -82,7 +82,8 @@ namespace CS471TowerDefense.Scripts.Enemies
 		{
 			kill = false;
 			//emits the signal described above
-			EmitSignal(SignalName.HealthDepleted);
+			EmitSignal(SignalName.HealthDepleted, _baseGoldReward);
+			GetNode("/root/Test Map 1/Player/Currency Manager").Call("add_money", _baseGoldReward);
 			GD.Print(this.Name + " dies ");
 
 			//This gets the Path node the enemy is attached too
