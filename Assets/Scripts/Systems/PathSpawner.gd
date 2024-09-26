@@ -2,6 +2,7 @@ extends Node2D
 
 
 @onready var path = preload("res://Assets/Prefab Objects/Map Systems/Path_1.tscn")
+@onready var winScreenPath = preload("res://Assets/Prefab Objects/Map Systems/you_win_screen.tscn")
 @onready var count = 1;
 @onready var wave = 1;
 @onready var wave1Count = 5
@@ -27,11 +28,17 @@ func _on_timer_timeout():
 		count = 0
 		get_child(0).start(10)
 	elif(count == wave3Count && wave == 3):
-		get_child(0).queue_free()
-		pass
+		wave = 4
+		count = 0
+		get_child(0).start(1)
+	elif wave > 3:
+		add_child(winScreenPath.instantiate())
+		print("You win")
+		get_tree().paused = true;
+		pass	
 	else:
 		get_child(0).start(1)
-		pass	
+		pass
 	
 	count = count + 1	
 	var tempPath = path.instantiate()
